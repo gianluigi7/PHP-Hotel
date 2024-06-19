@@ -51,44 +51,29 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 </head>
 <body>
-<table class="table">
+  <h1 class="text-center mb-5">Hotels</h1>
+<table class="table container">
   <thead>
     <tr>
-        <th scope="col">#</th>
-       <?php 
-       // foreach($hotels as $hotel) {
-        // echo $hotel['name'];
-          foreach($hotels[0] as $key => $value) {
-             echo '<th scope="col">$key</th>';
-          };
-
-       // }
-        ?>
-       <!-- 
-      <th scope="col">First</th>
-      <th scope="col">Last</th>
-      <th scope="col">Handle</th> -->
+      <th scope="col">Nome</th>
+      <th scope="col">Descrizione</th>
+      <th scope="col">Parcheggio</th>
+      <th scope="col">Voto</th> 
+      <th scope="col">Distanza</th> 
     </tr>
   </thead>
   <tbody>
+    <?php foreach ($hotels as $hotel) : ?>
     <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
+      <th scope="row"><?php echo $hotel['name']; ?></th>
+      <td><?php echo $hotel['description']; ?></td>
+      <td><?php echo $hotel['parking'] ? 'disponibile': 'non disponibile'; ?></td>
+      <td><?php echo $hotel['vote']; ?></td>
+      <td><?php echo $hotel['distance_to_center']; ?> km</td>
+      
     </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>Larry</td>
-      <td>the Bird</td>
-      <td>@twitter</td>
-    </tr>
+    <?php endforeach; ?>
+    
   </tbody>
 </table>
 </body>
